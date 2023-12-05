@@ -16,9 +16,12 @@ class SocialMedia extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
       SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[0]),
+      const SizedBox(height: 16,),
       SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[1]),
-      SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[2]),
-      SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[3]),
+        const SizedBox(height: 16,),
+        SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[2]),
+        const SizedBox(height: 16,),
+        SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[3]),
       const SizedBox(height: 20,),
         const CustomLine()
     ],);

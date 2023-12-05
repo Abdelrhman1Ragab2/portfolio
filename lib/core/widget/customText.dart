@@ -17,7 +17,8 @@ class CustomText extends StatelessWidget {
           height: 20,
           decoration: BoxDecoration(
             color: AppColor.colorB,
-            borderRadius: BorderRadius.circular(10)
+              border: Border.all(color: Colors.white,width: 1),
+              borderRadius: BorderRadius.circular(10)
           ),
         ),
         const SizedBox(width: 10,),

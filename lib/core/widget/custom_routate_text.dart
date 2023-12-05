@@ -10,7 +10,7 @@ class CustomRotateText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 60),
+      padding: const EdgeInsets.only(bottom: 80),
       child: Center(
         child: Transform.rotate(
           angle: 90* 3.1415927 / 180, // Convert degrees to radians

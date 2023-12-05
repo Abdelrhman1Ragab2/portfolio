@@ -11,9 +11,8 @@ class ExperienceView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 800,
+      height: 600,
       padding: const EdgeInsets.all(20.0),
-
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

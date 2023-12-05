@@ -4,6 +4,7 @@ import '../view/body/parts/about_view.dart';
 import '../view/body/parts/contact_view.dart';
 import '../view/body/parts/experince_view.dart';
 import '../view/body/parts/home_view.dart';
+import '../view/body/parts/work_view.dart';
 
 class ScrollProvider with ChangeNotifier{
 
@@ -16,21 +17,21 @@ class ScrollProvider with ChangeNotifier{
     notifyListeners();
   }
 
-  List<Widget> parts=const [HomeView(), AboutView(),ExperienceView(),ContactView()];
+  List<Widget> parts=const [HomeView(), AboutView(),ExperienceView(),OurWork(),ContactView()];
 
   Future<void>doScroll(int index)async{
     await scrollController.animateTo(
       // Specify the position you want to scroll to
-      getPostion(index),
+      getPosition(index),
       // Specify the duration of the animation
-      duration: const Duration(seconds: 1),
+      duration:  const Duration(milliseconds: 1500),
       // Specify the curve for the animation (optional)
       curve: Curves.easeInOut,
     );
   }
 
 
-  double getPostion(int index){
+  double getPosition(int index){
     switch(index){
       case 0:
         return 0;
@@ -39,9 +40,9 @@ class ScrollProvider with ChangeNotifier{
       case 2:
         return 1510;
       case 3:
-        return 2215;
+        return 2115;
       case 4:
-        return 2920;
+        return 4520;
 
     }
 

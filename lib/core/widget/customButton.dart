@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/controller/appBarProvider.dart';
+import 'package:portfolio/controller/pdf_downloded.dart';
 import 'package:portfolio/controller/scrollProvider.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +32,7 @@ class _CustomButtonState extends State<CustomButton> {
   Widget build(BuildContext context) {
     bool active=Provider.of<ScrollProvider>(context).activeIndex==widget.index  && widget.index!=5;
     return Padding(
-      padding: const EdgeInsets.only(right: 40.0,left: 40.0,top: 5,bottom: 5),
+      padding: const EdgeInsets.only(right: 40.0,left: 40.0,top: 10,bottom: 5),
       child: MouseRegion(
         onEnter: (_) async{
           if(widget.index!=5){
@@ -52,6 +52,7 @@ class _CustomButtonState extends State<CustomButton> {
             }
           },
           style: ButtonStyle(
+            elevation: MaterialStateProperty.all(0),
             backgroundColor: MaterialStateProperty.all(widget.index==5?AppColor.colorB:AppColor.colorA),
             shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/app_style.dart';
+import '../../../core/widget/custom_image.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class HomeView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
+            flex: 3,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,15 +32,7 @@ class HomeView extends StatelessWidget {
               ],
             ),
           ),
-          /// we wil add another image later
-          Expanded(
-            child: Image.asset(
-              "assets/images/home.png",
-              height: 400,
-              width: 300,
-              fit: BoxFit.contain,
-            ),
-          )
+          const Expanded(flex:7,child: CustomImage(imageUrl: "assets/images/home.png",))
 
 
         ],

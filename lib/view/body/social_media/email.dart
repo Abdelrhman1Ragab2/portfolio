@@ -10,15 +10,17 @@ class EmailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomRotateText(text: "abdelrhma",),
-        CustomRotateText(text: "n1ragab2@",),
-        CustomRotateText(text: "gmail.com",),
-        CustomLine()
-      ],
+    return Container(
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomRotateText(text: "abdelrhma",),
+          CustomRotateText(text: "n1ragab2@",),
+          CustomRotateText(text: "gmail.com",),
+          CustomLine()
+        ],
+      ),
     );
   }
 }
