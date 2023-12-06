@@ -48,7 +48,7 @@ class MyDrawer extends StatelessWidget {
     return InkWell(
       onTap: () {
         Provider.of<ScrollProvider>(context,listen: false).changeIndex(drawerOption.index);
-        Provider.of<ScrollProvider>(context,listen: false).doScroll(drawerOption.index);
+        Provider.of<ScrollProvider>(context,listen: false).doScroll(drawerOption.index,drawerOption.index==4);
         Navigator.pop(context);
       },
       child: Card(color: AppColor.colorA,

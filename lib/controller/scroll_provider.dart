@@ -19,10 +19,10 @@ class ScrollProvider with ChangeNotifier{
 
   List<Widget> parts=const [HomeView(), AboutView(),ExperienceView(),OurWork(),ContactView()];
 
-  Future<void>doScroll(int index)async{
+  Future<void>doScroll(int index,bool isMobile)async{
     await scrollController.animateTo(
       // Specify the position you want to scroll to
-      getPosition(index),
+      getPosition(index,isMobile),
       // Specify the duration of the animation
       duration:  const Duration(milliseconds: 1500),
       // Specify the curve for the animation (optional)
@@ -31,7 +31,7 @@ class ScrollProvider with ChangeNotifier{
   }
 
 
-  double getPosition(int index){
+  double getPosition(int index,bool isMobile){
     switch(index){
       case 0:
         return 0;
@@ -42,7 +42,7 @@ class ScrollProvider with ChangeNotifier{
       case 3:
         return 2115;
       case 4:
-        return 4520;
+        return isMobile?3720: 4520;
 
     }
 

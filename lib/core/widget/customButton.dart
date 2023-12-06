@@ -40,7 +40,7 @@ class _CustomButtonState extends State<CustomButton> {
         onEnter: (_) async{
           if(widget.drawerOptions.index!=5){
             Provider.of<ScrollProvider>(context,listen: false).changeIndex(widget.drawerOptions.index);
-            await Provider.of<ScrollProvider>(context,listen:  false).doScroll(widget.drawerOptions.index);
+            await Provider.of<ScrollProvider>(context,listen:  false).doScroll(widget.drawerOptions.index,widget.drawerOptions.index==4);
           }
 
 

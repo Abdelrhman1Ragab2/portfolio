@@ -17,14 +17,13 @@ class DashBoard extends StatelessWidget {
     double height = MediaQuery.of(context).size.width;
     Provider.of<ResponsiveProvider>(context, listen: false)
         .activateUI(width, height);
-    print(width);
     return Scaffold(
         floatingActionButton: Visibility(
           visible: Provider.of<ScrollProvider>(context).activeIndex > 0,
           child: FloatingActionButton(
               onPressed: () async {
                 await Provider.of<ScrollProvider>(context, listen: false)
-                    .doScroll(0);
+                    .doScroll(0,false);
                 Provider.of<ScrollProvider>(context, listen: false)
                     .changeIndex(0);
               },

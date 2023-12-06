@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/model/work_page.dart';
+import 'package:provider/provider.dart';
 
+import '../../controller/responsive_provider.dart';
 import '../utils/app_style.dart';
 
 class CustomPageView extends StatefulWidget {
@@ -16,14 +19,15 @@ class _CustomPageViewState extends State<CustomPageView> {
 
   @override
   Widget build(BuildContext context) {
-    bool isMobile= MediaQuery.of(context).size.width<500;
+    bool isMobile= Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile;
     return Container(
       padding:  EdgeInsets.all(isMobile?10:40),
       height: isMobile?400:600,
       child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(flex: 2,
-              child: workTitle()),
+              child: workTitle(isMobile)),
           Expanded(flex: 8,
             child: Row(
               children: [
@@ -53,39 +57,43 @@ class _CustomPageViewState extends State<CustomPageView> {
 
   Widget myButton(IconData iconData, bool isForward) {
     return Container(
-      width: 48,
-      height: 48,
+      width: 40,
+      height: 40,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24.0),
+        borderRadius: BorderRadius.circular(20.0),
+        color: AppColor.colorB
       ),
-      child: IconButton(
-          onPressed: () {
-            if (isForward) {
+      child: Center(
+        child: IconButton(
+            onPressed: () {
+              if (isForward) {
 
-              setState(() {
-                if(currentIndex<widget.workPage.workPages.length-1)
-                  currentIndex++;
+                setState(() {
+                  if(currentIndex<widget.workPage.workPages.length-1)
+                    currentIndex++;
 
-              });
-            } else {
-              setState(() {
-                if(currentIndex!=0)
-                  currentIndex--;
-              });
-            }
-          },
-          icon: Icon(
-            iconData,
-            size: 28,
-            color: Colors.white,
+                });
+              } else {
+                setState(() {
+                  if(currentIndex!=0)
+                    currentIndex--;
+                });
+              }
+            },
+            icon: Icon(
+              iconData,
+              size: 26,
+              color: Colors.white,
 
-          )),
+            )),
+      ),
     );
   }
-  Widget workTitle() {
+  Widget workTitle(bool isMobile) {
     return SizedBox(
-        height: 100,
-        child: Text(widget.workPage.workName,style: AppStyle.bigStyle,
+        height: 50,
+        child: Text(widget.workPage.workName,
+          style: isMobile?AppStyle.bigStyleM:AppStyle.bigStyle,
         ));
   }
 }
