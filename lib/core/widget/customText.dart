@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:portfolio/controller/responsive_provider.dart';
 import 'package:portfolio/core/utils/app_color.dart';
@@ -7,7 +6,8 @@ import 'package:provider/provider.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
-  const CustomText({Key? key,required this.text}) : super(key: key);
+
+  const CustomText({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +18,25 @@ class CustomText extends StatelessWidget {
           width: 20,
           height: 20,
           decoration: BoxDecoration(
-            color: AppColor.colorB,
-              border: Border.all(color: Colors.white,width: 1),
-              borderRadius: BorderRadius.circular(10)
-          ),
+              color: AppColor.colorB,
+              border: Border.all(color: Colors.white, width: 1),
+              borderRadius: BorderRadius.circular(10)),
         ),
-        const SizedBox(width: 10,),
+        const SizedBox(
+          width: 10,
+        ),
         SizedBox(
-          width: 700,
-          child: Text(text,
-          style:Provider.of<ResponsiveProvider>(context).activeWidth<825?AppStyle.textStyleM: AppStyle.textStyle,),
+          width:
+              Provider.of<ResponsiveProvider>(context).appSize == AppSize.mobile
+                  ? 300
+                  : 700,
+          child: Text(
+            text,
+            style: Provider.of<ResponsiveProvider>(context).appSize ==
+                    AppSize.mobile
+                ? AppStyle.textStyleM
+                : AppStyle.textStyle,
+          ),
         ),
       ],
     );

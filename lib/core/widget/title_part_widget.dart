@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../controller/responsive_provider.dart';
 import '../utils/app_style.dart';
 
 class TitlePartWidget extends StatelessWidget {
@@ -11,6 +13,9 @@ class TitlePartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         width :250,
-      child: Text(text,style: AppStyle.titleStyle,));
+      child: Text(text,
+
+        style:Provider.of<ResponsiveProvider>(context).activeWidth<825?AppStyle.titleStyleM: AppStyle.titleStyle,),
+    );
   }
 }

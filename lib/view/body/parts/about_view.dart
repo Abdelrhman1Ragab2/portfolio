@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/controller/responsive_provider.dart';
 import 'package:portfolio/core/utils/app_style.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/widget/customText.dart';
 import '../../../core/widget/custom_image.dart';
@@ -27,7 +29,9 @@ class AboutView extends StatelessWidget {
               const SizedBox(
                 height: 35,
               ),
-              Text("Hello I Am Abdelrhman Ragab Owais",style: AppStyle.logoStyle,),
+              Text("Hello I Am Abdelrhman Ragab Owais",
+
+                style:Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile?AppStyle.logoStyleM: AppStyle.logoStyle,),
               const SizedBox(
                 height: 35,
               ),
@@ -75,7 +79,8 @@ class AboutView extends StatelessWidget {
             ],
           ),
           //const CustomImage(imageUrl: "assets/images/about.png",)
-          Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkY_HqbS2bwHDtqTahgrHpVik9crh8tthw5Q&usqp=CAU"),
+          Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?
+          Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkY_HqbS2bwHDtqTahgrHpVik9crh8tthw5Q&usqp=CAU"):const SizedBox.shrink(),
 
         ],
       ),

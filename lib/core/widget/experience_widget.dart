@@ -12,10 +12,10 @@ class ExperienceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isMobile= Provider.of<ResponsiveProvider>(context).activeWidth<500;
+    bool isMobile= Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile;
 
     return  Padding(
-      padding: const EdgeInsets.all(26.0),
+      padding:  EdgeInsets.only(left: isMobile?4:26.0,bottom: 26),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,8 +29,9 @@ class ExperienceWidget extends StatelessWidget {
           ),
           const SizedBox(width: 10,),
           SizedBox(
+            width: 360,
             child: Text(text,
-              style:Provider.of<ResponsiveProvider>(context).activeWidth<825?AppStyle.experienceStyleM: AppStyle.experienceStyle,),
+              style:isMobile?AppStyle.experienceStyleM: AppStyle.experienceStyle,),
           ),
         ],
       ),
