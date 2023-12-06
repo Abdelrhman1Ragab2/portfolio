@@ -10,16 +10,18 @@ class AppConstant {
         link: "https://github.com/Abdelrhman1Ragab2"),
     SocialMediaModel(
         icon: FaIcon(FontAwesomeIcons.linkedinIn),
-        link: "https://github.com/Abdelrhman1Ragab2"),
+        link: "https://www.linkedin.com/in/abdelrhman-ragab-030001226/"),
+    SocialMediaModel(icon: FaIcon(FontAwesomeIcons.envelope), link: "email"),
     SocialMediaModel(
-        icon: FaIcon(FontAwesomeIcons.envelope),
-        link: "https://github.com/Abdelrhman1Ragab2"),
-    SocialMediaModel(
-        icon: FaIcon(FontAwesomeIcons.phone),
-        link: "https://github.com/Abdelrhman1Ragab2"),
+        icon: FaIcon(FontAwesomeIcons.whatsapp), link: whatsappLink),
   ];
+  static const String whatsappLink =
+      "https://api.whatsapp.com/send?phone=%2B201550886075";
 
-  static const List<WorkPage> workPageViews = [rayban, ssas, todo,equation];
+  static const String emailRecipient = "abdelrhman1ragab2@gmail.com";
+
+  static const List<WorkPage> workPageViews = [rayban, ssas, todo, equation];
+
   static const WorkPage rayban = WorkPage(workName: "Rayban", workPages: [
     "assets/images/rayban/rayban1.PNG",
     "assets/images/rayban/rayban2.PNG",
@@ -31,8 +33,7 @@ class AppConstant {
     "assets/images/rayban/rayban8.PNG",
     "assets/images/rayban/rayban9.PNG",
   ]);
-  static const WorkPage ssas =
-      WorkPage(workName: "Smart Student Attendance System", workPages: [
+  static const WorkPage ssas = WorkPage(workName: "Smart Student Attendance System", workPages: [
     "assets/images/ssas/1.PNG",
     "assets/images/ssas/2.PNG",
     "assets/images/ssas/3.PNG",
@@ -61,8 +62,7 @@ class AppConstant {
     "assets/images/ssas/28.jpg",
     "assets/images/ssas/29.jpg",
   ]);
-  static const WorkPage todo =
-      WorkPage(workName: "TODO Desktop app", workPages: [
+  static const WorkPage todo = WorkPage(workName: "TODO Desktop app", workPages: [
     "assets/images/todo/todo1.PNG",
     "assets/images/todo/todo2.PNG",
     "assets/images/todo/todo3.PNG",
@@ -74,8 +74,7 @@ class AppConstant {
     "assets/images/todo/todo9.PNG",
     "assets/images/todo/todo10.PNG",
   ]);
-  static const WorkPage equation =
-      WorkPage(workName: "Chemistry Equations", workPages: [
+  static const WorkPage equation = WorkPage(workName: "Chemistry Equations", workPages: [
     "assets/images/eq/eq1.PNG",
     "assets/images/eq/eq2.PNG",
     "assets/images/eq/eq3.PNG",

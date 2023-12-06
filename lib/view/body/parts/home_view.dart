@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:portfolio/controller/responsive_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/utils/app_style.dart';
 import '../../../core/widget/custom_image.dart';
@@ -9,6 +10,13 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppSize appSize =Provider.of<ResponsiveProvider>(context).appSize;
+
+    return appSize==AppSize.mobile ?mobileBody():webBody();
+
+  }
+
+  Widget webBody(){
     return SizedBox(
       height: 700,
       child: Row(
@@ -16,25 +24,75 @@ class HomeView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Welcome!",style: AppStyle.logoStyle,),
-                const SizedBox(height: 20,),
-                Text("I Am Flutter Developer ",style: AppStyle.bigStyle,),
-                const SizedBox(height: 20,),
                 Text(
-                    "i'm Flutter Developer with 1 year of experience,I got my experience through learning, researching making applications and many more.... ",
-
-                  style: AppStyle.textStyle,),
+                  "Welcome!",
+                  style: AppStyle.logoStyle,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "I Am Flutter Developer ",
+                  style: AppStyle.bigStyle,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "i'm Flutter Developer with 1 year of experience,I got my experience through learning, researching making applications and many more.... ",
+                  style: AppStyle.textStyle,
+                ),
               ],
             ),
           ),
-          const Expanded(flex:7,child: CustomImage(imageUrl: "assets/images/home.png",))
+          const Expanded(
+              flex: 1,
+              child: CustomImage(
+                imageUrl: "assets/images/home.png",
+              ))
+        ],
+      ),
+    );
+  }
 
-
+  Widget mobileBody(){
+    return SizedBox(
+      height: 700,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Welcome!",
+            style: AppStyle.logoStyleM,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "I Am Flutter Developer ",
+            style: AppStyle.bigStyleM,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "i'm Flutter Developer with 1 year of experience,I got my experience through learning, researching making applications and many more.... ",
+            style: AppStyle.textStyleM,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Center(
+            child: CustomImage(
+              imageUrl: "assets/images/home.png",
+            ),
+          )
         ],
       ),
     );

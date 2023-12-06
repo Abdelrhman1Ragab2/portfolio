@@ -10,6 +10,7 @@ class CustomTextSkills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width=MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Row(
@@ -28,7 +29,7 @@ class CustomTextSkills extends StatelessWidget {
           SizedBox(
             width: 320,
             child: Text(text,
-              style: AppStyle.skillsStyle,),
+              style: width<825?AppStyle.skillsStyleM:AppStyle.skillsStyle,),
           ),
         ],
       ),

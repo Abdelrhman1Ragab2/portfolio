@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/controller/pdf_downloded.dart';
-import 'package:portfolio/controller/scrollProvider.dart';
+import 'package:portfolio/controller/responsive_provider.dart';
+import 'package:portfolio/controller/scroll_provider.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 import 'package:provider/provider.dart';
 
+import '../../model/drawer_option.dart';
 import '../utils/app_style.dart';
 
 class CustomButton extends StatefulWidget {
-  final String text;
-  final int index;
+  final DrawerOptions drawerOptions;
 
-  const CustomButton({Key? key,  required this.text,required this.index})
+  const CustomButton({Key? key, required   this.drawerOptions})
       : super(key: key);
 
   @override
@@ -30,14 +31,16 @@ class _CustomButtonState extends State<CustomButton> {
 
   @override
   Widget build(BuildContext context) {
-    bool active=Provider.of<ScrollProvider>(context).activeIndex==widget.index  && widget.index!=5;
+    double width=MediaQuery.of(context).size.width;
+    double factor=(width/1366)*15;
+    bool active=Provider.of<ScrollProvider>(context).activeIndex==widget.drawerOptions.index  && widget.drawerOptions.index!=5;
     return Padding(
-      padding: const EdgeInsets.only(right: 40.0,left: 40.0,top: 10,bottom: 5),
+      padding:  EdgeInsets.only(right: factor,left: factor,top: 10,bottom: 5),
       child: MouseRegion(
         onEnter: (_) async{
-          if(widget.index!=5){
-            Provider.of<ScrollProvider>(context,listen: false).changeIndex(widget.index);
-            await Provider.of<ScrollProvider>(context,listen:  false).doScroll(widget.index);
+          if(widget.drawerOptions.index!=5){
+            Provider.of<ScrollProvider>(context,listen: false).changeIndex(widget.drawerOptions.index);
+            await Provider.of<ScrollProvider>(context,listen:  false).doScroll(widget.drawerOptions.index);
           }
 
 
@@ -47,13 +50,13 @@ class _CustomButtonState extends State<CustomButton> {
         },
         child: ElevatedButton(
           onPressed: ()async {
-            if(widget.index==5){
+            if(widget.drawerOptions.index==5){
               Provider.of<PDFProvider>(context,listen: false).downloadResume();
             }
           },
           style: ButtonStyle(
             elevation: MaterialStateProperty.all(0),
-            backgroundColor: MaterialStateProperty.all(widget.index==5?AppColor.colorB:AppColor.colorA),
+            backgroundColor: MaterialStateProperty.all(widget.drawerOptions.index==5?AppColor.colorB:AppColor.colorA),
             shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0))),
@@ -61,7 +64,7 @@ class _CustomButtonState extends State<CustomButton> {
                 const BorderSide(color: AppColor.colorB, width: 2):null),
           ),
           child: Text(
-            widget.text,
+            widget.drawerOptions.lable,
             style: AppStyle.buttonStyle,
           ),
         ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/utils/app_color.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 import '../../model/social_media_model.dart';
+import '../utils/app_constant.dart';
 
 class SocialBody extends StatefulWidget {
   final SocialMediaModel socialMediaModel;
@@ -36,8 +39,8 @@ class _SocialBodyState extends State<SocialBody> {
         ),
 
         child: IconButton(
-          onPressed: (){
-
+          onPressed: ()async {
+           await lunchURL();
           },
           icon: widget.socialMediaModel.icon,
           iconSize: 18,
@@ -47,4 +50,36 @@ class _SocialBodyState extends State<SocialBody> {
       ),
     );
   }
+
+  Future<void> lunchURL()async{
+
+    if(widget.socialMediaModel.link=="email"){
+      final Uri emailUri = Uri(
+        scheme: 'mailto',
+
+        path: AppConstant.emailRecipient,
+        queryParameters: {
+          'subject': "",
+          'body': "",
+        },
+      );
+
+      if (await canLaunch(emailUri.toString())) {
+        await launch(emailUri.toString());
+      } else {
+        throw 'Could not launch email client';
+      }
+    }else{
+      String  url = widget.socialMediaModel.link;
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
+
+  }
+
+
 }
+

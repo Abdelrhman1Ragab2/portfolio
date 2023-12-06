@@ -10,7 +10,16 @@ class BodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    double width=MediaQuery.of(context).size.width;
+
+    return  width<825?const Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          Expanded(child: AllPartsPage()),
+        ],
+      ),
+    ):const Row(
       children: [
         Expanded(flex: 2, child: SocialMedia()),
         Expanded(flex: 18, child: AllPartsPage()),

@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/controller/responsive_provider.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/core/utils/app_style.dart';
+import 'package:provider/provider.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
@@ -25,7 +27,7 @@ class CustomText extends StatelessWidget {
         SizedBox(
           width: 700,
           child: Text(text,
-          style: AppStyle.textStyle,),
+          style:Provider.of<ResponsiveProvider>(context).activeWidth<825?AppStyle.textStyleM: AppStyle.textStyle,),
         ),
       ],
     );

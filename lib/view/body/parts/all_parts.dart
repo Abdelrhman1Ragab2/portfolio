@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../controller/scrollProvider.dart';
+import '../../../controller/scroll_provider.dart';
 
 class AllPartsPage extends StatelessWidget {
   const AllPartsPage({Key? key}) : super(key: key);

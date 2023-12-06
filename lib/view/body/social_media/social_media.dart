@@ -12,7 +12,19 @@ class SocialMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    double width=MediaQuery.of(context).size.width;
+    return width<825?Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[0]),
+        const SizedBox(width: 16,),
+        SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[1]),
+        const SizedBox(width: 16,),
+        SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[2]),
+        const SizedBox(width: 16,),
+        SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[3]),
+      ],):
+     Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
       SocialBody(socialMediaModel: AppConstant.socialMediaModelItem[0]),
