@@ -54,28 +54,9 @@ class AboutView extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Row(children: [
-                CustomTextSkills(text:"Programming Languages: Dart, Php, Java" ,),
-                CustomTextSkills(text:"SOLID principles" ,),
-              ],),
-              const Row(
-                mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                children: [
-                CustomTextSkills(text:"Technologies : Flutter, Firebase, Git " ,),
-                CustomTextSkills(text:"SDLC Concept" ,),
-              ],),
-              const Row(children: [
-                CustomTextSkills(text:"State Management: GetX, Provider, BLOC " ,),
-                CustomTextSkills(text:"REST API" ,),
-              ],),
-              const Row(children: [
-                CustomTextSkills(text:"Database: SQL, NoSQL " ,),
-                CustomTextSkills(text:"Clean code" ,),
-              ],),
-              const Row(children: [
-                CustomTextSkills(text:"Design patterns & Architecture patterns" ,),
-                CustomTextSkills(text:"Problem-solving abilities" ,),
-              ],),
+              Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile?
+                  skillsBodyMobile():skillsBodyWeb()
+
             ],
           ),
           //const CustomImage(imageUrl: "assets/images/about.png",)
@@ -84,6 +65,53 @@ class AboutView extends StatelessWidget {
 
         ],
       ),
+    );
+  }
+
+  skillsBodyWeb(){
+    return const Column(
+      children: [
+        Row(children: [
+          CustomTextSkills(text:"Programming Languages: Dart, Php, Java" ,),
+          CustomTextSkills(text:"SOLID principles" ,),
+        ],),
+        Row(
+          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          children: [
+            CustomTextSkills(text:"Technologies : Flutter, Firebase, Git " ,),
+            CustomTextSkills(text:"SDLC Concept" ,),
+          ],),
+        Row(children: [
+          CustomTextSkills(text:"State Management: GetX, Provider, BLOC " ,),
+          CustomTextSkills(text:"REST API" ,),
+        ],),
+        Row(children: [
+          CustomTextSkills(text:"Database: SQL, NoSQL " ,),
+          CustomTextSkills(text:"Clean code" ,),
+        ],),
+        Row(children: [
+          CustomTextSkills(text:"Design patterns & Architecture patterns" ,),
+          CustomTextSkills(text:"Problem-solving abilities" ,),
+        ],),
+      ],
+    );
+  }
+
+  skillsBodyMobile(){
+    return const Column(
+      children: [
+        CustomTextSkills(text:"Programming Languages: Dart, Php, Java" ,),
+        CustomTextSkills(text:"Technologies : Flutter, Firebase, Git " ,),
+        CustomTextSkills(text:"Design patterns & Architecture patterns" ,),
+        CustomTextSkills(text:"Problem-solving abilities" ,),
+        CustomTextSkills(text:"Database: SQL, NoSQL " ,),
+        CustomTextSkills(text:"SOLID principles" ,),
+        CustomTextSkills(text:"SDLC Concept" ,),
+        CustomTextSkills(text:"Clean code" ,),
+
+
+
+      ],
     );
   }
 }
