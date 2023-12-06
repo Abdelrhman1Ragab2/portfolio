@@ -5,6 +5,7 @@ import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 
+import '../../controller/pdf_downloded.dart';
 import '../../model/drawer_option.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -19,7 +20,7 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       elevation: 5,
 
-      width: MediaQuery.of(context).size.width*4/5,
+      width: MediaQuery.of(context).size.width*1/2,
       backgroundColor: Colors.black.withOpacity(0.1),
       child: Container(
         padding: const EdgeInsets.all(8.0),
@@ -47,8 +48,13 @@ class MyDrawer extends StatelessWidget {
   Widget itemBody(BuildContext context,DrawerOptions drawerOption) {
     return InkWell(
       onTap: () {
-        Provider.of<ScrollProvider>(context,listen: false).changeIndex(drawerOption.index);
-        Provider.of<ScrollProvider>(context,listen: false).doScroll(drawerOption.index,drawerOption.index==4);
+        if(drawerOption.index==5){
+          Provider.of<PDFProvider>(context,listen: false).downloadResume();
+        }else{
+          Provider.of<ScrollProvider>(context,listen: false).changeIndex(drawerOption.index);
+          Provider.of<ScrollProvider>(context,listen: false).doScroll(drawerOption.index,drawerOption.index==4);
+        }
+
         Navigator.pop(context);
       },
       child: Card(color: AppColor.colorA,
@@ -59,12 +65,9 @@ class MyDrawer extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(drawerOption.lable,style: AppStyle.experienceStyle,
+              Text(drawerOption.label,style: AppStyle.titleStyleM,
               ),
-              Icon(
-                drawerOption.icon,
-                color: Colors.white,
-              ),
+              drawerOption.widget
             ],
           ),
         ),
