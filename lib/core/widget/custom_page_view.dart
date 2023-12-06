@@ -22,33 +22,34 @@ class _CustomPageViewState extends State<CustomPageView> {
     bool isMobile= Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile;
     return Container(
       padding:  EdgeInsets.all(isMobile?10:40),
-      height: isMobile?400:600,
+      height: isMobile?250:400,
       child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Expanded(flex: 2,
-              child: workTitle(isMobile)),
-          Expanded(flex: 8,
-            child: Row(
+           workTitle(isMobile),
+      Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 myButton(Icons.arrow_back_ios, false),
                 SizedBox(width: isMobile?10:20),
-                Expanded(
-                  child: PageView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Image.asset(
-                        widget.workPage.workPages[currentIndex],
-                        fit: BoxFit.contain,
-                      );
-                    },
-                    itemCount: widget.workPage.workPages.length,
-                  ),
+                 SizedBox(
+                    height:200,
+                    width: 300,
+                    child: PageView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Image.asset(
+                          widget.workPage.workPages[currentIndex],
+                          fit: BoxFit.contain,
+                        );
+                      },
+                      itemCount: widget.workPage.workPages.length,
+                    ),
                 ),
                 SizedBox(width: isMobile?10:20),
                 myButton(Icons.arrow_forward_ios, true),
               ],
-            ),
           ),
         ],
       ),
@@ -56,44 +57,34 @@ mainAxisAlignment: MainAxisAlignment.center,
   }
 
   Widget myButton(IconData iconData, bool isForward) {
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        color: AppColor.colorB
-      ),
-      child: Center(
-        child: IconButton(
-            onPressed: () {
-              if (isForward) {
+    return Center(
+      child: IconButton(
+          onPressed: () {
+            if (isForward) {
 
-                setState(() {
-                  if(currentIndex<widget.workPage.workPages.length-1)
-                    currentIndex++;
+              setState(() {
+                if(currentIndex<widget.workPage.workPages.length-1)
+                  currentIndex++;
 
-                });
-              } else {
-                setState(() {
-                  if(currentIndex!=0)
-                    currentIndex--;
-                });
-              }
-            },
-            icon: Icon(
-              iconData,
-              size: 26,
-              color: Colors.white,
+              });
+            } else {
+              setState(() {
+                if(currentIndex!=0)
+                  currentIndex--;
+              });
+            }
+          },
+          icon: Icon(
+            iconData,
+            size: 26,
+            color: Colors.white,
 
-            )),
-      ),
+          )),
     );
   }
   Widget workTitle(bool isMobile) {
-    return SizedBox(
-        height: 50,
-        child: Text(widget.workPage.workName,
-          style: isMobile?AppStyle.bigStyleM:AppStyle.bigStyle,
-        ));
+    return Text(widget.workPage.workName,
+      style: isMobile?AppStyle.bigStyleM:AppStyle.bigStyle,
+    );
   }
 }

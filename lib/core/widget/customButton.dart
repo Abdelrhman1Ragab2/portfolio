@@ -64,7 +64,7 @@ class _CustomButtonState extends State<CustomButton> {
                 const BorderSide(color: AppColor.colorB, width: 2):null),
           ),
           child: Text(
-            widget.drawerOptions.lable,
+            widget.drawerOptions.label,
             style: AppStyle.buttonStyle,
           ),
         ),

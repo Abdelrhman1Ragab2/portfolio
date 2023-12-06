@@ -41,6 +41,10 @@ PreferredSizeWidget? customAppBar(BuildContext context) {
                   drawerOptions:
                       Provider.of<ResponsiveProvider>(context, listen: false)
                           .drawerOptions[4]),
+              CustomButton(
+                  drawerOptions:
+                  Provider.of<ResponsiveProvider>(context, listen: false)
+                      .drawerOptions[5]),
             ],
           ),
         );

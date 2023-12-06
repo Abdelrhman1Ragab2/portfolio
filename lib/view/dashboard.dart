@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../controller/responsive_provider.dart';
 import '../controller/scroll_provider.dart';
-import '../core/widget/custom_drwer.dart';
+import '../core/widget/custom_drawer.dart';
 import 'app_bar/app_bar.dart';
 
 class DashBoard extends StatelessWidget {

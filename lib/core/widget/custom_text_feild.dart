@@ -7,7 +7,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final double height;
   final double width;
-  const CustomTextField({Key? key,required this.controller,required this.hintText, this.width=350,this.height=100}) : super(key: key);
+  const CustomTextField({Key? key,required this.controller,required this.hintText, this.width=350,this.height=70}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

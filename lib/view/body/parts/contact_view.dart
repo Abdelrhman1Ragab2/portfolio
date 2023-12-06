@@ -4,6 +4,7 @@ import 'package:portfolio/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 
 import '../../../controller/contact_provider.dart';
+import '../../../controller/responsive_provider.dart';
 import '../../../core/widget/confirmation_dialog.dart';
 import '../../../core/widget/custom_text_feild.dart';
 
@@ -12,7 +13,7 @@ class ContactView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 700,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -40,36 +41,9 @@ class ContactView extends StatelessWidget {
             color: AppColor.colorB,
           ),
           const SizedBox(
-            height: 50,
+            height: 25,
           ),
-          Row(
-            children: [
-              Expanded(
-                  child: CustomTextField(
-                controller:
-                    Provider.of<ContactProvider>(context).nameController,
-                hintText: "Name",
-              )),
-              Expanded(
-                  child: CustomTextField(
-                controller:
-                    Provider.of<ContactProvider>(context).emailController,
-                hintText: "Email",
-              )),
-              Expanded(
-                  child: CustomTextField(
-                controller:
-                    Provider.of<ContactProvider>(context).subjectController,
-                hintText: "Subject",
-              )),
-            ],
-          ),
-          CustomTextField(
-              controller:
-                  Provider.of<ContactProvider>(context).messageController,
-              hintText: "Message",
-              width: 1100,
-              height: 200),
+          Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?fieldBodyWeb(context):fieldBodyMobile(context),
           ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(AppColor.colorB),
@@ -90,6 +64,68 @@ class ContactView extends StatelessWidget {
               ))
         ],
       ),
+    );
+  }
+
+  fieldBodyWeb(BuildContext context){
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+                child: CustomTextField(
+                  controller:
+                  Provider.of<ContactProvider>(context).nameController,
+                  hintText: "Name",
+                )),
+            Expanded(
+                child: CustomTextField(
+                  controller:
+                  Provider.of<ContactProvider>(context).emailController,
+                  hintText: "Email",
+                )),
+            Expanded(
+                child: CustomTextField(
+                  controller:
+                  Provider.of<ContactProvider>(context).subjectController,
+                  hintText: "Subject",
+                )),
+          ],
+        ),
+        CustomTextField(
+            controller:
+            Provider.of<ContactProvider>(context).messageController,
+            hintText: "Message",
+            width: 1100,
+            height: 200),
+      ],
+    );
+  }
+
+  fieldBodyMobile(BuildContext context){
+    return Column(
+      children: [
+         CustomTextField(
+              controller:
+              Provider.of<ContactProvider>(context).nameController,
+              hintText: "Name",
+            ),
+        const SizedBox(height: 10,),
+        CustomTextField(
+              controller:
+              Provider.of<ContactProvider>(context).emailController,
+              hintText: "Email",
+            ),
+        CustomTextField(
+              controller:
+              Provider.of<ContactProvider>(context).subjectController,
+              hintText: "Subject",
+            ),
+        CustomTextField(
+            controller:
+            Provider.of<ContactProvider>(context).messageController,
+            hintText: "Message",),
+      ],
     );
   }
 }

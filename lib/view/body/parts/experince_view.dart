@@ -14,7 +14,7 @@ class ExperienceView extends StatelessWidget {
       height: 600,
       padding: const EdgeInsets.all(20.0),
       child: const Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TitlePartWidget(

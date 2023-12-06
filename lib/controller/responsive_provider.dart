@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/core/utils/app_color.dart';
 
 import '../model/drawer_option.dart';
 
@@ -10,15 +12,17 @@ class ResponsiveProvider extends ChangeNotifier{
   AppSize appSize=AppSize.web;
   List<DrawerOptions> drawerOptions = [
     DrawerOptions(
-        lable: "Home", icon: Icons.home_filled, position: 0, index: 0),
+        label: "Home", widget: const FaIcon(FontAwesomeIcons.home,color: AppColor.colorD,size: 20), position: 0, index: 0),
     DrawerOptions(
-        lable: "About", icon: Icons.table_rows, position: 705, index: 1),
+        label: "About", widget: const FaIcon(FontAwesomeIcons.info,color: AppColor.colorD,size: 20), position: 705, index: 1),
     DrawerOptions(
-        lable: "Experience", icon: Icons.call, position: 1510, index: 2),
+        label: "Experience", widget: const FaIcon(FontAwesomeIcons.check,color: AppColor.colorD,size: 20), position: 1510, index: 2),
     DrawerOptions(
-        lable: "Work", icon: Icons.info, position: 2115, index: 3),
+        label: "Work", widget: const FaIcon(FontAwesomeIcons.file,color: AppColor.colorD,size: 20), position: 2115, index: 3),
     DrawerOptions(
-        lable: "Contact", icon: Icons.info, position: 4520, index: 4),
+        label: "Contact", widget: const FaIcon(FontAwesomeIcons.addressBook,color: AppColor.colorD,size: 20), position: 4520, index: 4),
+    DrawerOptions(
+        label: "Resume", widget: const FaIcon(FontAwesomeIcons.download,color: AppColor.colorD,size: 20), position: 0, index: 5),
   ];
 
 
