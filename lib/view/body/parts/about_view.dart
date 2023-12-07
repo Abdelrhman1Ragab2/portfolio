@@ -14,9 +14,11 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile=Provider.of<ResponsiveProvider>(context).appSize ==
+        AppSize.mobile;
     return Container(
       height: 800,
-      padding: const EdgeInsets.all(20.0),
+      padding:  const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,9 +30,7 @@ class AboutView extends StatelessWidget {
           ),
           Text(
             "Hello I Am Abdelrhman Ragab Owais",
-            style: Provider.of<ResponsiveProvider>(context).appSize ==
-                    AppSize.mobile
-                ? AppStyle.experienceStyleM
+            style: isMobile?AppStyle.experienceStyleM
                 : AppStyle.logoStyle,
           ),
           const SizedBox(
@@ -56,8 +56,7 @@ class AboutView extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Provider.of<ResponsiveProvider>(context).appSize == AppSize.mobile
-              ? skillsBodyMobile()
+          isMobile? skillsBodyMobile()
               : skillsBodyWeb()
         ],
       ),

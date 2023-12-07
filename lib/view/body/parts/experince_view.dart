@@ -13,17 +13,18 @@ class ExperienceView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile = Provider.of<ResponsiveProvider>(context).appSize ==
+        AppSize.mobile;
     return Container(
       height: 600,
       decoration: const BoxDecoration(
-
           image: DecorationImage(
             fit: BoxFit.fitHeight,
           image: AssetImage("assets/images/exp.jpeg")
 
         )
       ),
-      padding: const EdgeInsets.all(20.0),
+      padding:  EdgeInsets.all(isMobile?5:20.0),
       child:  Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +33,7 @@ class ExperienceView extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             height: 100,
             width: double.maxFinite,
-            color: Colors.black54,
+             color: Colors.black54,
             child: const TitlePartWidget(
               text: "Experience ",
             )),

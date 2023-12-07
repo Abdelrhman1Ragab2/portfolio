@@ -32,7 +32,7 @@ class ExperienceWidget extends StatelessWidget {
           ),
           const SizedBox(width: 10,),
           SizedBox(
-            width: isMobile?360:800,
+            width: isMobile?280:800,
             child: Text(text,
               style:isMobile?AppStyle.experienceStyleM: AppStyle.experienceStyle,),
           ),
