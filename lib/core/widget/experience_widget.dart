@@ -14,7 +14,9 @@ class ExperienceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isMobile= Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile;
 
-    return  Padding(
+    return  Container(
+      color: Colors.black54,
+
       padding:  EdgeInsets.only(left: isMobile?4:26.0,bottom: 26),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

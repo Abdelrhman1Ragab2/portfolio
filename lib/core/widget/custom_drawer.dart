@@ -57,7 +57,7 @@ class MyDrawer extends StatelessWidget {
 
         Navigator.pop(context);
       },
-      child: Card(color: AppColor.colorA,
+      child: Card(color: AppColor.colorB,
         elevation: 20,
         child: Container(
           height: 50,
