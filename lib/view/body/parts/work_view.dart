@@ -21,6 +21,7 @@ class _OurWorkState extends State<OurWork> {
     return SizedBox(
       height: Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?1850:1050,
       child: ListView.separated(
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) =>CustomPageView(workPage:  AppConstant.workPageViews[index],),
         separatorBuilder: (context, index) => const SizedBox(
           height: 5,
