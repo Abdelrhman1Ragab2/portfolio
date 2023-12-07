@@ -28,6 +28,7 @@ class _CustomPageViewState extends State<CustomPageView> {
 
       child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
            workTitle(isMobile),
       Row(
@@ -35,10 +36,9 @@ class _CustomPageViewState extends State<CustomPageView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 myButton(Icons.arrow_back_ios, false),
-                SizedBox(width: isMobile?10:20),
                  SizedBox(
                     height:isMobile?200:400*factor,
-                    width: isMobile?250:700*factor,
+                    width: isMobile?225:700*factor,
                       child: PageView.builder(
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
@@ -50,7 +50,6 @@ class _CustomPageViewState extends State<CustomPageView> {
                         itemCount: widget.workPage.workPages.length,
                       ),
                 ),
-                SizedBox(width: isMobile?10:20),
                 myButton(Icons.arrow_forward_ios, true),
               ],
           ),
