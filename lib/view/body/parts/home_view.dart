@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/controller/responsive_provider.dart';
+import 'package:portfolio/view/body/social_media/social_media.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/enum/app_size.dart';
 import '../../../core/utils/app_style.dart';
 import '../../../core/widget/custom_image.dart';
 
@@ -64,7 +66,7 @@ class HomeView extends StatelessWidget {
     return SizedBox(
       height: 700,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -88,6 +90,8 @@ class HomeView extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
+          const  SocialMedia(),
+          const SizedBox(height: 20,),
           const Center(
             child: CustomImage(
               imageUrl: "assets/images/home.png",

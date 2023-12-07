@@ -42,11 +42,11 @@ class ScrollProvider with ChangeNotifier{
       case 3:
         return 2115;
       case 4:
-        return isMobile?3170: 3920;
+        return isMobile?3170: 4400;
 
     }
-
-    return (700*(index-1))+(5*index).toDouble();
+   return 4300;
+   // return (700*(index-1))+(5*index).toDouble();
   }
 
 }

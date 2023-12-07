@@ -6,6 +6,7 @@ import 'package:portfolio/core/utils/app_color.dart';
 import 'package:provider/provider.dart';
 
 import '../../model/drawer_option.dart';
+import '../enum/app_size.dart';
 import '../utils/app_style.dart';
 
 class CustomButton extends StatefulWidget {
@@ -40,7 +41,7 @@ class _CustomButtonState extends State<CustomButton> {
         onEnter: (_) async{
           if(widget.drawerOptions.index!=5){
             Provider.of<ScrollProvider>(context,listen: false).changeIndex(widget.drawerOptions.index);
-            await Provider.of<ScrollProvider>(context,listen:  false).doScroll(widget.drawerOptions.index,widget.drawerOptions.index==4);
+            await Provider.of<ScrollProvider>(context,listen:  false).doScroll(widget.drawerOptions.index,Provider.of<ResponsiveProvider>(context,listen: false).appSize==AppSize.mobile);
           }
 
 

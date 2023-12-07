@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 
+import '../core/enum/app_size.dart';
 import '../model/drawer_option.dart';
 
-enum AppSize {mobile,web,tablet}
 
 class ResponsiveProvider extends ChangeNotifier{
 
@@ -30,6 +30,7 @@ class ResponsiveProvider extends ChangeNotifier{
 
   late double activeWidth;
   late double activeHeight;
+  late double factor;
 
   activateUI(double height,double width){
     if(width<825){
@@ -40,7 +41,8 @@ class ResponsiveProvider extends ChangeNotifier{
     }
     activeWidth=width;
     activeHeight=height;
-    notifyListeners();
+    factor=width/1366;
+    // notifyListeners();
   }
 
 

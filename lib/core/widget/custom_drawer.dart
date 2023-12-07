@@ -7,20 +7,18 @@ import 'package:provider/provider.dart';
 
 import '../../controller/pdf_downloded.dart';
 import '../../model/drawer_option.dart';
+import '../enum/app_size.dart';
 
 class MyDrawer extends StatelessWidget {
- const  MyDrawer({
+  const MyDrawer({
     Key? key,
   }) : super(key: key);
-
-
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 5,
-
-      width: MediaQuery.of(context).size.width*1/2,
+      width: MediaQuery.of(context).size.width * 1 / 2,
       backgroundColor: Colors.black.withOpacity(0.1),
       child: Container(
         padding: const EdgeInsets.all(8.0),
@@ -30,34 +28,44 @@ class MyDrawer extends StatelessWidget {
               flex: 5,
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return itemBody(context,Provider.of<ResponsiveProvider>(context,listen: false).drawerOptions[index]);
+                  return itemBody(
+                      context,
+                      Provider.of<ResponsiveProvider>(context, listen: false)
+                          .drawerOptions[index]);
                 },
                 separatorBuilder: (_, __) => const SizedBox(
                   height: 10,
                 ),
-                itemCount: Provider.of<ResponsiveProvider>(context,listen: false).drawerOptions.length,
+                itemCount:
+                    Provider.of<ResponsiveProvider>(context, listen: false)
+                        .drawerOptions
+                        .length,
               ),
             ),
-
           ],
         ),
       ),
     );
   }
 
-  Widget itemBody(BuildContext context,DrawerOptions drawerOption) {
+  Widget itemBody(BuildContext context, DrawerOptions drawerOption) {
     return InkWell(
       onTap: () {
-        if(drawerOption.index==5){
-          Provider.of<PDFProvider>(context,listen: false).downloadResume();
-        }else{
-          Provider.of<ScrollProvider>(context,listen: false).changeIndex(drawerOption.index);
-          Provider.of<ScrollProvider>(context,listen: false).doScroll(drawerOption.index,drawerOption.index==4);
+        if (drawerOption.index == 5) {
+          Provider.of<PDFProvider>(context, listen: false).downloadResume();
+        } else {
+          Provider.of<ScrollProvider>(context, listen: false)
+              .changeIndex(drawerOption.index);
+          Provider.of<ScrollProvider>(context, listen: false).doScroll(
+              drawerOption.index,
+              Provider.of<ResponsiveProvider>(context, listen: false).appSize ==
+                  AppSize.mobile);
         }
 
         Navigator.pop(context);
       },
-      child: Card(color: AppColor.colorB,
+      child: Card(
+        color: AppColor.colorB,
         elevation: 20,
         child: Container(
           height: 50,
@@ -65,7 +73,9 @@ class MyDrawer extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(drawerOption.label,style: AppStyle.titleStyleM,
+              Text(
+                drawerOption.label,
+                style: AppStyle.titleStyleM,
               ),
               drawerOption.widget
             ],
@@ -74,5 +84,4 @@ class MyDrawer extends StatelessWidget {
       ),
     );
   }
-
 }

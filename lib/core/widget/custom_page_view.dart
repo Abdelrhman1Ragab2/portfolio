@@ -4,6 +4,7 @@ import 'package:portfolio/model/work_page.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/responsive_provider.dart';
+import '../enum/app_size.dart';
 import '../utils/app_style.dart';
 
 class CustomPageView extends StatefulWidget {
@@ -20,9 +21,10 @@ class _CustomPageViewState extends State<CustomPageView> {
   @override
   Widget build(BuildContext context) {
     bool isMobile= Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile;
+    double factor= Provider.of<ResponsiveProvider>(context).factor;
     return Container(
       padding:  EdgeInsets.all(isMobile?10:40),
-      height: isMobile?250:400,
+      height: isMobile?250:550,
 
       child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -35,18 +37,18 @@ class _CustomPageViewState extends State<CustomPageView> {
                 myButton(Icons.arrow_back_ios, false),
                 SizedBox(width: isMobile?10:20),
                  SizedBox(
-                    height:200,
-                    width: isMobile?250:300,
-                    child: PageView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Image.asset(
-                          widget.workPage.workPages[currentIndex],
-                          fit: BoxFit.contain,
-                        );
-                      },
-                      itemCount: widget.workPage.workPages.length,
-                    ),
+                    height:isMobile?200:400*factor,
+                    width: isMobile?250:700*factor,
+                      child: PageView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Image.asset(
+                            widget.workPage.workPages[currentIndex],
+                            fit: BoxFit.contain,
+                          );
+                        },
+                        itemCount: widget.workPage.workPages.length,
+                      ),
                 ),
                 SizedBox(width: isMobile?10:20),
                 myButton(Icons.arrow_forward_ios, true),

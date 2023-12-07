@@ -33,7 +33,7 @@ class DashBoard extends StatelessWidget {
                 color: Colors.white,
               )),
         ),
-        drawer: width<961?const MyDrawer():null,
+        endDrawer: width<961?const MyDrawer():null,
 
         backgroundColor: AppColor.colorA,
         appBar: customAppBar(context),

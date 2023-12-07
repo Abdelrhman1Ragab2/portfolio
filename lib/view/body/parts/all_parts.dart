@@ -11,8 +11,8 @@ class AllPartsPage extends StatelessWidget {
     return ListView.separated(
         controller: Provider.of<ScrollProvider>(context).scrollController,
         itemBuilder: (context, index) =>Provider.of<ScrollProvider>(context,listen: false).parts[index],
-        separatorBuilder: (context, index) => const SizedBox(
-          height: 5,
+        separatorBuilder: (context, index) =>  SizedBox(
+          height: index==2?50:5,
         ),
         itemCount: Provider.of<ScrollProvider>(context,listen: false).parts.length);
   }

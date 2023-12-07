@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/enum/field_type.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 
 import '../../../controller/contact_provider.dart';
 import '../../../controller/responsive_provider.dart';
+import '../../../core/enum/app_size.dart';
 import '../../../core/widget/confirmation_dialog.dart';
 import '../../../core/widget/custom_text_feild.dart';
 
@@ -14,11 +16,11 @@ class ContactView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?600:500,
       child: Form(
         key: Provider.of<ContactProvider>(context).formKey,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?MainAxisAlignment.center:MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
@@ -87,6 +89,7 @@ class ContactView extends StatelessWidget {
                 )),
             Expanded(
                 child: CustomTextField(
+                  fieldType: FieldType.email,
                   controller:
                   Provider.of<ContactProvider>(context).emailController,
                   hintText: "Email",
@@ -119,6 +122,7 @@ class ContactView extends StatelessWidget {
             ),
         const SizedBox(height: 10,),
         CustomTextField(
+          fieldType: FieldType.email,
               controller:
               Provider.of<ContactProvider>(context).emailController,
               hintText: "Email",
