@@ -88,6 +88,7 @@ class _CustomPageViewState extends State<CustomPageView> {
   Widget workTitle(bool isMobile) {
     return Text(widget.workPage.workName,
       style: isMobile?AppStyle.bigStyleM:AppStyle.bigStyle,
+      textAlign: TextAlign.center,
     );
   }
 }

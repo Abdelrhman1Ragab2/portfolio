@@ -41,7 +41,7 @@ class ConfirmationDialog extends StatelessWidget {
 
               ),
               const SizedBox(height: 20,),
-              const FaIcon(FontAwesomeIcons.circleCheck,color: AppColor.colorB,size: 30,)
+              const Icon(Icons.check_circle_outline_outlined,color: AppColor.colorB,size: 30,)
             ],
           )
         ),

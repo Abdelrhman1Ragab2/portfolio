@@ -14,7 +14,7 @@ class ResponsiveProvider extends ChangeNotifier{
     DrawerOptions(
         label: "Home", widget: const FaIcon(FontAwesomeIcons.home,color: AppColor.colorD,size: 20), position: 0, index: 0),
     DrawerOptions(
-        label: "About", widget: const FaIcon(FontAwesomeIcons.circleInfo,color: AppColor.colorD,size: 20), position: 705, index: 1),
+        label: "About", widget: const FaIcon(Icons.info_outline_rounded,color: AppColor.colorD,size: 20), position: 705, index: 1),
     DrawerOptions(
         label: "Experience", widget: const FaIcon(FontAwesomeIcons.check,color: AppColor.colorD,size: 20), position: 1510, index: 2),
     DrawerOptions(
