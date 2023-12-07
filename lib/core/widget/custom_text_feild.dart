@@ -2,12 +2,16 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 
+import '../enum/app_size.dart';
+import '../enum/field_type.dart';
+
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final double height;
   final double width;
-  const CustomTextField({Key? key,required this.controller,required this.hintText, this.width=350,this.height=70}) : super(key: key);
+  final FieldType fieldType;
+  const CustomTextField({Key? key,required this.controller,required this.hintText, this.fieldType=FieldType.name, this.width=350,this.height=70}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +28,14 @@ class CustomTextField extends StatelessWidget {
           if (val != null) {
             if (val.isEmpty) {
               return "value can not be empty";
+            }
+            if(fieldType==FieldType.email){
+              if(!val.contains("@")||!val.contains(".com")|| val.length<8){
+                return " Please enter correct email";
+              }
+            }
+            if(val.length<2){
+              return "short value";
             }
           }
         },

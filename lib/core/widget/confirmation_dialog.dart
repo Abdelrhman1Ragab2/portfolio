@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/controller/responsive_provider.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
+
+import '../enum/app_size.dart';
 
 
 class ConfirmationDialog extends StatelessWidget {
@@ -22,18 +25,24 @@ class ConfirmationDialog extends StatelessWidget {
         child: Container(
           height: 300,
           width: 1000,
-          color: AppColor.colorA,
+          color: AppColor.colorDefault,
           padding: const EdgeInsets.only(
               left: 50, right: 50, top: 50, bottom: 50),
-          child: Center(
-              child: Text(
-                contentMessage,
-                style:Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile? AppStyle.
-          bigStyleRM:AppStyle.
-                bigStyleR,
-                textAlign: TextAlign.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+                   Text(
+                    contentMessage,
+                    style:Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile? AppStyle.
+              bigStyleRM:AppStyle.
+                    bigStyle,
+                    textAlign: TextAlign.center,
 
-              )
+              ),
+              const SizedBox(height: 20,),
+              const FaIcon(FontAwesomeIcons.circleCheck,color: AppColor.colorB,size: 30,)
+            ],
           )
         ),
 

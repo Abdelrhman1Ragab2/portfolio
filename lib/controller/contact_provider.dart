@@ -14,6 +14,13 @@ class ContactProvider with ChangeNotifier{
 
   bool onSubmit() {
     bool isValid = formKey.currentState!.validate();
+    if(isValid){
+      nameController.text="";
+      emailController.text="";
+      subjectController.text="";
+      messageController.text="";
+      notifyListeners();
+    }
     return isValid;
 
   }

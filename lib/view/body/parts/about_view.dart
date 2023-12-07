@@ -3,6 +3,7 @@ import 'package:portfolio/controller/responsive_provider.dart';
 import 'package:portfolio/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/enum/app_size.dart';
 import '../../../core/widget/customText.dart';
 import '../../../core/widget/custom_image.dart';
 import '../../../core/widget/custom_text_skils.dart';

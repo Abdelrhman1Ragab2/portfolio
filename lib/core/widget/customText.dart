@@ -4,6 +4,8 @@ import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 
+import '../enum/app_size.dart';
+
 class CustomText extends StatelessWidget {
   final String text;
 

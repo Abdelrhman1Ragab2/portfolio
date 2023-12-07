@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../controller/responsive_provider.dart';
+import '../../../core/enum/app_size.dart';
 import '../../../core/utils/app_color.dart';
 import '../../../core/widget/experience_widget.dart';
 import '../../../core/widget/title_part_widget.dart';
@@ -12,7 +13,6 @@ class ExperienceView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isMobile= Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile;
     return Container(
       height: 600,
       decoration: const BoxDecoration(

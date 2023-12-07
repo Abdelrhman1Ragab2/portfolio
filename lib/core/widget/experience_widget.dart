@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/responsive_provider.dart';
+import '../enum/app_size.dart';
 import '../utils/app_color.dart';
 import '../utils/app_style.dart';
 

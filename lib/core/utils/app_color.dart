@@ -5,7 +5,7 @@ class AppColor {
 
 
 
-  static const Color colorDefault =  Color(0xff2e313d);
+  static const Color colorDefault =  Color(0xff04042f);
   //p1
   // static const Color colorA =  Color(0xff001524);
   // static const Color colorB =  Color(0xff445D48);
