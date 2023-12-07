@@ -13,56 +13,63 @@ class ContactView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 700,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "CONTACT ",
-                style: AppStyle.bigStyle,
-              ),
-              Text(
-                "US",
-                style: AppStyle.bigStyleR,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Container(
-            height: 2,
-            width: 100,
-            color: AppColor.colorB,
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?fieldBodyWeb(context):fieldBodyMobile(context),
-          ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(AppColor.colorB),
-              ),
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const ConfirmationDialog(
-                        contentMessage:
+    return SizedBox(
+      height: 500,
+      child: Form(
+        key: Provider.of<ContactProvider>(context).formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "CONTACT ",
+                  style: AppStyle.bigStyle,
+                ),
+                Text(
+                  "US",
+                  style: AppStyle.bigStyleR,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Container(
+              height: 2,
+              width: 100,
+              color: AppColor.colorB,
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?fieldBodyWeb(context):fieldBodyMobile(context),
+            ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(AppColor.colorB),
+                ),
+                onPressed: () {
+                  bool isSowDialog=Provider.of<ContactProvider>(context,listen: false).onSubmit();
+                  if(isSowDialog){
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return const ConfirmationDialog(
+                            contentMessage:
                             "Thank you for sending this message, I will contact you soon",
-                      );
-                    });
-              },
-              child: Text(
-                "Send Message ",
-                style: AppStyle.textStyle,
-              ))
-        ],
+                          );
+                        });
+                  }
+
+                },
+                child: Text(
+                  "Send Message ",
+                  style: AppStyle.textStyle,
+                ))
+          ],
+        ),
       ),
     );
   }

@@ -23,6 +23,7 @@ class _CustomPageViewState extends State<CustomPageView> {
     return Container(
       padding:  EdgeInsets.all(isMobile?10:40),
       height: isMobile?250:400,
+
       child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -35,7 +36,7 @@ class _CustomPageViewState extends State<CustomPageView> {
                 SizedBox(width: isMobile?10:20),
                  SizedBox(
                     height:200,
-                    width: 300,
+                    width: isMobile?250:300,
                     child: PageView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/controller/responsive_provider.dart';
 import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/core/utils/app_style.dart';
+import 'package:provider/provider.dart';
 
 
 class ConfirmationDialog extends StatelessWidget {
@@ -25,8 +27,10 @@ class ConfirmationDialog extends StatelessWidget {
               left: 50, right: 50, top: 50, bottom: 50),
           child: Center(
               child: Text(
-                contentMessage,style: AppStyle.
-          bigStyleR,
+                contentMessage,
+                style:Provider.of<ResponsiveProvider>(context).appSize==AppSize.mobile? AppStyle.
+          bigStyleRM:AppStyle.
+                bigStyleR,
                 textAlign: TextAlign.center,
 
               )
