@@ -16,7 +16,7 @@ PreferredSizeWidget? customAppBar(BuildContext context) {
     child: AppBar(
       leading: isMobile?null:Center(
           child: Text("ABDELRHMAN",
-              style: isMobile ? AppStyle.logoStyle : AppStyle.logoStyleM,)),
+              style: isMobile ? AppStyle.logoStyleM : AppStyle.logoStyle,)),
       leadingWidth: 300,
       elevation: 0,
       backgroundColor: AppColor.colorA,

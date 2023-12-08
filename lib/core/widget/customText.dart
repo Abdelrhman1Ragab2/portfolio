@@ -31,7 +31,7 @@ class CustomText extends StatelessWidget {
           width:
               Provider.of<ResponsiveProvider>(context).appSize == AppSize.mobile
                   ? 300
-                  : 700,
+                  : 900,
           child: Text(
             text,
             style: Provider.of<ResponsiveProvider>(context).appSize ==

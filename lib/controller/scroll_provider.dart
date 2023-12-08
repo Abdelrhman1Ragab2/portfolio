@@ -8,7 +8,12 @@ import '../view/body/parts/work_view.dart';
 
 class ScrollProvider with ChangeNotifier{
 
-  ScrollController scrollController=ScrollController();
+  late ScrollController scrollController;
+
+  ScrollProvider() {
+    scrollController = ScrollController();
+    scrollController.addListener(_scrollListener);
+  }
 
   int activeIndex=0;
 
@@ -47,6 +52,40 @@ class ScrollProvider with ChangeNotifier{
     }
    return 4300;
    // return (700*(index-1))+(5*index).toDouble();
+  }
+
+
+
+
+
+
+  void _scrollListener() {
+    if(scrollController.offset <600){
+      activeIndex=0;
+      notifyListeners();
+    }
+    else if (scrollController.offset >= 705 && scrollController.offset <1300)  {
+      activeIndex=1;
+      notifyListeners();
+    }
+    else if (scrollController.offset >= 1300 && scrollController.offset <1900)  {
+      activeIndex=2;
+      notifyListeners();
+    }
+    else if (scrollController.offset >= 1900 && scrollController.offset <3800)  {
+      activeIndex=3;
+      notifyListeners();
+    }else if (scrollController.offset >= 3900 )  {
+      activeIndex=4;
+      notifyListeners();
+    }
+  }
+
+  @override
+  void dispose() {
+    scrollController.removeListener(_scrollListener);
+    scrollController.dispose();
+    super.dispose();
   }
 
 }

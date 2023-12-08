@@ -65,8 +65,10 @@ class AboutView extends StatelessWidget {
 
   skillsBodyWeb() {
     return const Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CustomTextSkills(
               text: "Programming Languages: Dart, Php, Java",
@@ -77,6 +79,8 @@ class AboutView extends StatelessWidget {
           ],
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             CustomTextSkills(
               text: "Technologies : Flutter, Firebase, Git ",
@@ -87,6 +91,8 @@ class AboutView extends StatelessWidget {
           ],
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             CustomTextSkills(
               text: "State Management: GetX, Provider, BLOC ",
@@ -97,6 +103,8 @@ class AboutView extends StatelessWidget {
           ],
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             CustomTextSkills(
               text: "Database: SQL, NoSQL ",
@@ -107,6 +115,8 @@ class AboutView extends StatelessWidget {
           ],
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             CustomTextSkills(
               text: "Design patterns & Architecture patterns",
