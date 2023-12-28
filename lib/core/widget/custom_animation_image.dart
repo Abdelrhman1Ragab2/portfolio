@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/widget/custom_image.dart';
 
 class CustomAnimationImage extends StatefulWidget  {
   const CustomAnimationImage ({Key? key}) : super(key: key);

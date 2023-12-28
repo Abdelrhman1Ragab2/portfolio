@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core/enum/app_size.dart';
 import '../../../core/utils/app_style.dart';
+import '../../../core/widget/custom_animation_text.dart';
 import '../../../core/widget/custom_image.dart';
 import '../../../core/widget/custom_animation_image.dart';
 
@@ -38,10 +39,7 @@ class HomeView extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    "I Am Flutter Developer ",
-                    style: AppStyle.bigStyle,
-                  ),
+                  const AnimatedText(),
                   const SizedBox(
                     height: 20,
                   ),
