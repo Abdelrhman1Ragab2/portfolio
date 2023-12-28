@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/controller/responsive_provider.dart';
+import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/view/body/social_media/social_media.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/enum/app_size.dart';
 import '../../../core/utils/app_style.dart';
 import '../../../core/widget/custom_image.dart';
+import '../../../core/widget/custom_animation_image.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -14,51 +16,62 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     AppSize appSize =Provider.of<ResponsiveProvider>(context).appSize;
 
-    return appSize==AppSize.mobile ?mobileBody():webBody();
+    return appSize==AppSize.mobile ?mobileBody():webBody(context);
 
   }
 
-  Widget webBody(){
+  Widget webBody(BuildContext context){
     return SizedBox(
       height: 700,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            flex: 2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Welcome!",
-                  style: AppStyle.logoStyle,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "I Am Flutter Developer ",
-                  style: AppStyle.bigStyle,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "i'm Flutter Developer with 1 year of experience,I got my experience through learning, researching making applications and many more.... ",
-                  style: AppStyle.textStyle,
-                ),
-              ],
+      child:
+        Row(
+          children: [
+            Expanded(flex: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Welcome!",
+                    style: AppStyle.logoStyle,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "I Am Flutter Developer ",
+                    style: AppStyle.bigStyle,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width/2,
+                    child: Text(
+                      "i'm Flutter Developer with 1 year of experience,I got my experience through learning, researching making applications and many more.... ",
+                      style: AppStyle.textStyle,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const Expanded(
-              flex: 1,
-              child: CustomImage(
-                imageUrl: "assets/images/home.png",
-              ))
-        ],
-      ),
+
+                Stack(
+                children: [
+                  Container(
+                  height: 350,
+                  width: 300,
+                    decoration: BoxDecoration(
+
+                    border: Border.all(color: AppColor.colorC,width: 2),
+                  ),
+                  ),
+                  const  CustomAnimationImage()
+
+                ],
+              ),
+          ],
+        ),
     );
   }
 
