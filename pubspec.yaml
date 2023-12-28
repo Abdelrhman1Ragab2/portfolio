@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^6.1.0
   font_awesome_flutter: ^10.6.0
   url_launcher: ^6.0.0
+  dio: ^5.4.0
 
 
 
@@ -71,6 +72,7 @@ flutter:
      - assets/images/ssas/
      - assets/images/todo/
      - assets/images/eq/
+     - assets/images/chat/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

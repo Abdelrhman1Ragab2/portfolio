@@ -19,8 +19,8 @@ class _OurWorkState extends State<OurWork> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?2200:1050,
+    return SizedBox(
+      height: Provider.of<ResponsiveProvider>(context).appSize==AppSize.web?2700:1250,
       child: ListView.separated(
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) =>CustomPageView(workPage:  AppConstant.workPageViews[index],),

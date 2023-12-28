@@ -20,7 +20,7 @@ class AppConstant {
 
   static const String emailRecipient = "abdelrhman1ragab2@gmail.com";
 
-  static const List<WorkPage> workPageViews = [rayban, ssas, todo, equation];
+  static const List<WorkPage> workPageViews = [rayban, ssas, todo, equation,chat];
 
   static const WorkPage rayban = WorkPage(workName: "Rayban", workPages: [
     "assets/images/rayban/rayban1.PNG",
@@ -83,5 +83,23 @@ class AppConstant {
     "assets/images/eq/eq2.jpg",
     "assets/images/eq/eq3.jpg",
     "assets/images/eq/eq4.jpg",
+  ]);
+
+  static const WorkPage chat =  WorkPage(workName: "Chat App", workPages:  [
+    "assets/images/chat/ch1.jpg",
+    "assets/images/chat/ch2.jpg",
+    "assets/images/chat/ch3.jpg",
+    "assets/images/chat/ch4.jpg",
+    "assets/images/chat/ch5.jpg",
+    "assets/images/chat/ch6.jpg",
+    "assets/images/chat/ch7.jpg",
+    "assets/images/chat/ch8.jpg",
+    "assets/images/chat/ch9.jpg",
+    "assets/images/chat/ch10.jpg",
+    "assets/images/chat/ch11.jpg",
+    "assets/images/chat/ch12.jpg",
+    "assets/images/chat/ch13.jpg",
+    "assets/images/chat/ch14.jpg",
+
   ]);
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/app_color.dart';
 import 'package:portfolio/model/work_page.dart';
 import 'package:provider/provider.dart';
 
@@ -65,14 +64,16 @@ class _CustomPageViewState extends State<CustomPageView> {
             if (isForward) {
 
               setState(() {
-                if(currentIndex<widget.workPage.workPages.length-1)
+                if(currentIndex<widget.workPage.workPages.length-1) {
                   currentIndex++;
+                }
 
               });
             } else {
               setState(() {
-                if(currentIndex!=0)
+                if(currentIndex!=0) {
                   currentIndex--;
+                }
               });
             }
           },
