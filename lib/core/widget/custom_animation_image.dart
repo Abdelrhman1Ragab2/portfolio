@@ -14,9 +14,9 @@ class _CustomAnimationImageState extends State<CustomAnimationImage>  with Singl
 
   @override
   void initState() {
-    animationController=AnimationController(vsync: this,duration: const Duration(seconds: 1),);
-    positionAnimation=   RelativeRectTween(begin:const RelativeRect.fromLTRB(0, 20, 0, 0) ,
-        end: const RelativeRect.fromLTRB(0, 0, 0, 20)).animate(animationController);
+    animationController=AnimationController(vsync: this,duration: const Duration(seconds: 2),);
+    positionAnimation=   RelativeRectTween(begin:const RelativeRect.fromLTRB(0, 15, 0, 0) ,
+        end: const RelativeRect.fromLTRB(0, 0, 0, 15)).animate(animationController);
     animationController.repeat(reverse: true);
     super.initState();
 

@@ -8,12 +8,9 @@ class AllPartsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return ListView.builder(
         controller: Provider.of<ScrollProvider>(context).scrollController,
         itemBuilder: (context, index) =>Provider.of<ScrollProvider>(context,listen: false).parts[index],
-        separatorBuilder: (context, index) =>  SizedBox(
-          height: index==2?50:5,
-        ),
         itemCount: Provider.of<ScrollProvider>(context,listen: false).parts.length);
   }
 }

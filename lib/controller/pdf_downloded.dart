@@ -19,7 +19,7 @@ class PDFProvider with ChangeNotifier{
   }
 
   Future<List<int>> _downloadAssetPDF() async {
-    final ByteData assetData = await rootBundle.load('assets/images/AbdelrhmanCv.pdf');
+    final ByteData assetData = await rootBundle.load('assets/images/Abdelrhman_Ragab_Cv.pdf');
     final List<int> pdfBytes = assetData.buffer.asUint8List();
     return pdfBytes;
 

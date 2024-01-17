@@ -62,7 +62,7 @@ class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderSt
 
     // Create the animation controller
     _controller = AnimationController(
-      duration: const Duration(seconds:2),
+      duration: const Duration(milliseconds:1500),
       vsync: this,
     );
 
@@ -76,7 +76,7 @@ class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderSt
     _animation.addListener(() {
       setState(() {
         final int endIndex = (_animation.value * _fullText.length).round();
-        _partialText = "${_fullText.substring(0, endIndex)} ..|";
+        _partialText = "${_fullText.substring(0, endIndex)}  |";
       });
 
     });

@@ -4,6 +4,7 @@ import 'package:portfolio/core/utils/app_style.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/enum/app_size.dart';
+import '../../../core/utils/app_color.dart';
 import '../../../core/widget/customText.dart';
 import '../../../core/widget/custom_image.dart';
 import '../../../core/widget/custom_text_skils.dart';
@@ -57,76 +58,83 @@ class AboutView extends StatelessWidget {
             height: 20,
           ),
           isMobile? skillsBodyMobile()
-              : skillsBodyWeb()
+              :skillsBodyWeb()
         ],
       ),
     );
   }
 
   skillsBodyWeb() {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CustomTextSkills(
-              text: "Programming Languages: Dart, Php, Java",
-            ),
-            CustomTextSkills(
-              text: "SOLID principles",
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Container(
+      decoration: BoxDecoration(
 
-          children: [
-            CustomTextSkills(
-              text: "Technologies : Flutter, Firebase, Git ",
-            ),
-            CustomTextSkills(
-              text: "SDLC Concept",
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    border: Border.all(color: AppColor.colorC,width: 2),
+    ),
 
-          children: [
-            CustomTextSkills(
-              text: "State Management: GetX, Provider, BLOC ",
-            ),
-            CustomTextSkills(
-              text: "REST API",
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomTextSkills(
+                text: "Programming Languages: Dart, Php, Java",
+              ),
+              CustomTextSkills(
+                text: "SOLID principles",
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-          children: [
-            CustomTextSkills(
-              text: "Database: SQL, NoSQL ",
-            ),
-            CustomTextSkills(
-              text: "Clean code",
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomTextSkills(
+                text: "Technologies : Flutter, Firebase, Git ",
+              ),
+              CustomTextSkills(
+                text: "SDLC Concept",
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-          children: [
-            CustomTextSkills(
-              text: "Design patterns & Architecture patterns",
-            ),
-            CustomTextSkills(
-              text: "Problem-solving abilities",
-            ),
-          ],
-        ),
-      ],
+            children: [
+              CustomTextSkills(
+                text: "State Management: GetX, Provider, BLOC ",
+              ),
+              CustomTextSkills(
+                text: "REST API",
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+              CustomTextSkills(
+                text: "Database: SQL, NoSQL ",
+              ),
+              CustomTextSkills(
+                text: "Clean code",
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+              CustomTextSkills(
+                text: "Design patterns & Architecture patterns",
+              ),
+              CustomTextSkills(
+                text: "Problem-solving abilities",
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
