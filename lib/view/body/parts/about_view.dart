@@ -39,7 +39,7 @@ class AboutView extends StatelessWidget {
           ),
           const CustomText(
             text:
-                "i'm Flutter Developer with 1 year of experience, seeking a challenging position to contribute my expertise in developing innovative and user-friendly mobile,web, and desktop applications. ",
+            "I'm a Software Engineer with hands-on experience in DevOps tools such as Linux, Bash, Python, Docker, Kubernetes, Ansible, and Terraform.\n\nAdditionally, I have a strong background in Flutter, having developed mobile,desktop and web applications. My experience is the result of continuous learning, research, and practical application, contributing to my expertise in these technologies.",
           ),
           const SizedBox(
             height: 35,
@@ -78,22 +78,10 @@ class AboutView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomTextSkills(
-                text: "Programming Languages: Dart, Php, Java",
+                text: "Programming Languages: python - Dart - Java ",
               ),
               CustomTextSkills(
-                text: "SOLID principles",
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-            children: [
-              CustomTextSkills(
-                text: "Technologies : Flutter, Firebase, Git ",
-              ),
-              CustomTextSkills(
-                text: "SDLC Concept",
+                text: "Leadership",
               ),
             ],
           ),
@@ -102,10 +90,10 @@ class AboutView extends StatelessWidget {
 
             children: [
               CustomTextSkills(
-                text: "State Management: GetX, Provider, BLOC ",
+                text: "Scripting language: bash script",
               ),
               CustomTextSkills(
-                text: "REST API",
+                text: "Communication",
               ),
             ],
           ),
@@ -114,10 +102,22 @@ class AboutView extends StatelessWidget {
 
             children: [
               CustomTextSkills(
-                text: "Database: SQL, NoSQL ",
+                text: "Technologies and tools: Docker - Kubernetes\nAWS Terraform - Ansible - Flutter, Firebase, ",
               ),
               CustomTextSkills(
-                text: "Clean code",
+                text: "Problem Solving",
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+              CustomTextSkills(
+                text: "Database :SQL - NoSQL",
+              ),
+              CustomTextSkills(
+                text: "Time Management",
               ),
             ],
           ),

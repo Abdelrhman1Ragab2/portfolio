@@ -35,10 +35,11 @@ class ExperienceView extends StatelessWidget {
             width: double.maxFinite,
              color: Colors.black54,
             child: const TitlePartWidget(
-              text: "Experience ",
+              text: "Experience  and course",
             )),
+          const ExperienceWidget(text: "DevOps and Automation training at  National Telecommunication Institute (NTI)",),
           const ExperienceWidget(text: "Android Development training at Information Technology Institute (ITI)",),
-          const ExperienceWidget(text: "Flutter Development training in SimpleLife EG",),
+          const ExperienceWidget(text: "Flutter Development training at SimpleLife EG",),
           const ExperienceWidget(text: "CyberSecurity training at Helwan College",),
 
 

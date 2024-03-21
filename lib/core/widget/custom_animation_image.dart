@@ -34,7 +34,7 @@ class _CustomAnimationImageState extends State<CustomAnimationImage>  with Singl
     return
       PositionedTransition(
         rect: positionAnimation ,
-        child:  Image.asset("assets/images/home.png",height: 350,width: 300,
+        child:  Image.asset("assets/images/my.jpg",height: 350,width: 300,
         ),
     );
   }

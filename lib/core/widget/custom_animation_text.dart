@@ -53,7 +53,7 @@ class AnimatedText extends StatefulWidget {
 class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderStateMixin {
   late  AnimationController _controller;
  late Animation<double> _animation;
-  final String _fullText = 'I Am Flutter Developer ';
+  final String _fullText = 'I am Software Engineer ';
   String _partialText = '';
 
   @override
@@ -62,7 +62,7 @@ class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderSt
 
     // Create the animation controller
     _controller = AnimationController(
-      duration: const Duration(milliseconds:1500),
+      duration: const Duration(milliseconds:2500),
       vsync: this,
     );
 

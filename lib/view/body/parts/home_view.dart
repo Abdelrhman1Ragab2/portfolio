@@ -25,7 +25,7 @@ class HomeView extends StatelessWidget {
     return SizedBox(
       height: 700,
       child:
-        Row(
+        Row( crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(flex: 2,
               child: Column(
@@ -46,7 +46,7 @@ class HomeView extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width/2,
                     child: Text(
-                      "i'm Flutter Developer with 1 year of experience,I got my experience through learning, researching making applications and many more.... ",
+                      "I'm a Software Engineer with hands-on experience in DevOps tools such as Linux, Bash, Python, Docker, Kubernetes, Ansible, and Terraform.\n\nAdditionally, I have a strong background in Flutter, having developed mobile,desktop and web applications. My experience is the result of continuous learning, research, and practical application, contributing to my expertise in these technologies.",
                       style: AppStyle.textStyle,
                     ),
                   ),
@@ -55,16 +55,24 @@ class HomeView extends StatelessWidget {
             ),
 
                 Stack(
+                  alignment: Alignment.center,
                 children: [
                   Container(
-                  height: 350,
-                  width: 300,
+                  height: 450,
+                  width: 350,
                     decoration: BoxDecoration(
 
                     border: Border.all(color: AppColor.colorC,width: 2),
                   ),
                   ),
-                  const  CustomAnimationImage()
+                  //const  CustomAnimationImage()
+                  const Center(
+                    child: CustomImage(
+                      imageUrl: "assets/images/my.jpg",
+                    ),
+                  )
+
+
 
                 ],
               ),
@@ -88,14 +96,14 @@ class HomeView extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "I Am Flutter Developer ",
+            "I Am Software Engineer ",
             style: AppStyle.bigStyleM,
           ),
           const SizedBox(
             height: 20,
           ),
           Text(
-            "i'm Flutter Developer with 1 year of experience,I got my experience through learning, researching making applications and many more.... ",
+            "I'm a Software Engineer with hands-on experience in DevOps tools such as Linux, Bash, Python, Docker, Kubernetes, Ansible, and Terraform. Additionally, I have a strong background in Flutter, having developed mobile,desktop and web applications. My experience is the result of continuous learning, research, and practical application, contributing to my expertise in these technologies.",
             style: AppStyle.textStyleM,
           ),
           const SizedBox(
@@ -105,7 +113,7 @@ class HomeView extends StatelessWidget {
           const SizedBox(height: 20,),
           const Center(
             child: CustomImage(
-              imageUrl: "assets/images/home.png",
+              imageUrl: "assets/images/my.jpg",
             ),
           )
         ],
