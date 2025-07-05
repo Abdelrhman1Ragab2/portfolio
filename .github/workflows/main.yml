@@ -1,0 +1,20 @@
+name : Automation Workflow
+
+on :
+  push:
+    branches:
+      - branch1
+jobs:
+  print_welcom_message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: welcom message
+        run : echo "Hellow form our workflow project"
+        
+      - name : checkout repo
+        uses : actions/checkout@v4.2.2
+        
+      - name : list current dir
+        run : ls -l
+    
+    
