@@ -3,7 +3,7 @@ name : Automation Workflow
 on :
   push:
     branches:
-      - branch1
+      - master
 jobs:
   print_welcom_message:
     runs-on: ubuntu-latest
